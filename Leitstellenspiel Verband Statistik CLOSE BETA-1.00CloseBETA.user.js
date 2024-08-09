@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Leitstellenspiel Verband Statistik close beta
+// @name         Leitstellenspiel Verband Statistik Close BETA
 // @namespace    http://tampermonkey.net/
-// @version      1.01 close beta
-// @description  Zeigt Statistiken des Verbandes im Leitstellenspiel als ausklappbares Menü an
+// @version      1.02 Close Beta
+// @description  Zeigt Statistiken des Verbandes im Leitstellenspiel als ausklappbares Menü an und aktualisiert diese automatisch in Echtzeit
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
 // @grant        GM_xmlhttpRequest
@@ -120,7 +120,10 @@
         `<li><a href="#" style="color: white; font-size: 12px;">Ersteller: Fabian (Capt.BobbyNash)</a></li>`
       );
       dropdownMenu.append(
-        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.20</a></li>`
+        `<li><a href="#" style="color: white; font-size: 12px;">Supporter: m75e</a></li>`
+      );
+      dropdownMenu.append(
+        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.02 (Close BETA Version)</a></li>`
       );
       dropdownMenu.append(
         `<li><a href="#" style="color: white; font-size: 12px;">Funktionen des Skripts:</a></li>`
@@ -134,6 +137,9 @@
       dropdownMenu.append(
         `<li><a href="#" style="color: white; font-size: 12px;">- Anzeige der Credits der letzten 24 Stunden</a></li>`
       );
+      dropdownMenu.append(
+        `<li><a href="#" style="color: white; font-size: 12px;">- Automatische Aktualisierung der Statistiken alle 5-20 Sekunden</a></li>`
+      );
 
       // Neuer Menüpunkt für das Admin Panel hinzufügen
       dropdownMenu.append(
@@ -141,14 +147,6 @@
       );
       dropdownMenu.append(
         `<li><a href="https://www.leitstellenspiel.de/admin" style="color: white;">Verbands Admin Panel</a></li>`
-      );
-
-      // Button für die Aktualisierung hinzufügen
-      dropdownMenu.append(
-        `<li class="divider"></li>` // Trennlinie
-      );
-      dropdownMenu.append(
-        `<li><a href="#" id="refresh-stats" style="color: white;">Aktualisieren</a></li>`
       );
 
       // Menüeintrag zusammenfügen
@@ -160,13 +158,6 @@
       if (navbar.length) {
         navbar.append(menuEntry);
         console.log("Menüeintrag hinzugefügt");
-
-        // Aktualisieren Button click event
-        $('#refresh-stats').on('click', function (event) {
-          event.preventDefault();
-          console.log("Aktualisieren Button geklickt");
-          fetchAllianceInfo();
-        });
       } else {
         console.error("Navigationsleiste nicht gefunden");
       }
@@ -187,5 +178,8 @@
   $(document).ready(function () {
     console.log("Skript geladen und bereit");
     fetchAllianceInfo();
+
+    // Automatische Echtzeit-Aktualisierung alle 5 Sekunden (5000 Millisekunden)
+    setInterval(fetchAllianceInfo, 5000);
   });
 })();
