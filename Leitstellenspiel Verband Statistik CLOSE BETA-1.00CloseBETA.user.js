@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Leitstellenspiel Verband Statistik
+// @name         Leitstellenspiel Verband Statistik close beta
 // @namespace    http://tampermonkey.net/
-// @version      1.20
+// @version      1.01 close beta
 // @description  Zeigt Statistiken des Verbandes im Leitstellenspiel als ausklappbares Menü an
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
