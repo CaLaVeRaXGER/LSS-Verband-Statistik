@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Leitstellenspiel Verband Statistik CLOSE BETA
+// @name         Leitstellenspiel Verband Statistik
 // @namespace    http://tampermonkey.net/
-// @version      1.01 Close Beta
+// @version      1.20
 // @description  Zeigt Statistiken des Verbandes im Leitstellenspiel als ausklappbares Menü an
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
@@ -47,7 +47,6 @@
 
     const allianceName = data.name || "Unbekannt"; // Name des Verbands
     const allianceId = data.id || "#"; // ID des Verbands
-    const allianceLogo = data.logo || ""; // Logo des Verbands
     const totalCredits = data.credits_total || 0; // Gesamtverdiente Credits
     const currentCredits = data.credits_current || 0; // Aktuelle Credits (Verbandskasse)
     const totalMembers = data.user_count || 0; // Mitgliederanzahl
@@ -57,7 +56,6 @@
 
     console.log("Aktualisierte Statistiken: ", {
       allianceName,
-      allianceLogo,
       totalCredits,
       currentCredits,
       totalMembers,
@@ -86,9 +84,9 @@
         color: "white", // Weiße Schrift
       });
 
-      // Name und Logo des Verbands hinzufügen, mit Link zur Verbandsseite
+      // Name des Verbands hinzufügen, mit Link zur Verbandsseite
       dropdownMenu.append(
-        `<li><a href="https://www.leitstellenspiel.de/alliances/${allianceId}" style="color: white; font-size: 14px;"><strong>Verband:</strong> <img src="${allianceLogo}" alt="Logo" style="height: 20px; vertical-align: middle; margin-right: 5px;"><span style="color: green;" class="alliance-name">${allianceName}</span></a></li>`
+        `<li><a href="https://www.leitstellenspiel.de/alliances/${allianceId}" style="color: white; font-size: 14px;"><strong>Verband:</strong> <span style="color: green;" class="alliance-name">${allianceName}</span></a></li>`
       );
       dropdownMenu.append(
         `<li class="divider"></li>` // Trennlinie
@@ -122,7 +120,7 @@
         `<li><a href="#" style="color: white; font-size: 12px;">Ersteller: Fabian (Capt.BobbyNash)</a></li>`
       );
       dropdownMenu.append(
-        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.19 (Dev Version)</a></li>`
+        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.20</a></li>`
       );
       dropdownMenu.append(
         `<li><a href="#" style="color: white; font-size: 12px;">Funktionen des Skripts:</a></li>`
