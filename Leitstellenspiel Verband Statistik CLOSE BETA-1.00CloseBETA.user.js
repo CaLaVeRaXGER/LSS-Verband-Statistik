@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel Verband Statistik CLOSE BETA
 // @namespace    http://tampermonkey.net/
-// @version      1.00 Close BETA
+// @version      1.01 Close Beta
 // @description  Zeigt Statistiken des Verbandes im Leitstellenspiel als ausklappbares Menü an
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
@@ -45,14 +45,19 @@
       return;
     }
 
-    const totalCredits = data.credits_total || 0; // Total Credits
-    const currentCredits = data.credits_current || 0; // Aktuelle Credits
+    const allianceName = data.name || "Unbekannt"; // Name des Verbands
+    const allianceId = data.id || "#"; // ID des Verbands
+    const allianceLogo = data.logo || ""; // Logo des Verbands
+    const totalCredits = data.credits_total || 0; // Gesamtverdiente Credits
+    const currentCredits = data.credits_current || 0; // Aktuelle Credits (Verbandskasse)
     const totalMembers = data.user_count || 0; // Mitgliederanzahl
     const rank = data.rank || "Unbekannt";
     const totalMissions = data.missions_total || "Daten nicht verfügbar"; // Annahme: API liefert missions_total
     const creditsLast24h = data.credits_last_24h || "Daten nicht verfügbar"; // Annahme: API liefert credits_last_24h
 
     console.log("Aktualisierte Statistiken: ", {
+      allianceName,
+      allianceLogo,
       totalCredits,
       currentCredits,
       totalMembers,
@@ -81,12 +86,20 @@
         color: "white", // Weiße Schrift
       });
 
-      // Statistiken hinzufügen
+      // Name und Logo des Verbands hinzufügen, mit Link zur Verbandsseite
       dropdownMenu.append(
-        `<li><a href="#" style="color: white;"><strong>Gesammelte Credits:</strong> <span style="color: green;" class="total-credits">${totalCredits.toLocaleString()}</span></a></li>`
+        `<li><a href="https://www.leitstellenspiel.de/alliances/${allianceId}" style="color: white; font-size: 14px;"><strong>Verband:</strong> <img src="${allianceLogo}" alt="Logo" style="height: 20px; vertical-align: middle; margin-right: 5px;"><span style="color: green;" class="alliance-name">${allianceName}</span></a></li>`
       );
       dropdownMenu.append(
-        `<li><a href="#" style="color: white;"><strong>Aktuelle Credits:</strong> <span style="color: green;" class="current-credits">${currentCredits.toLocaleString()}</span></a></li>`
+        `<li class="divider"></li>` // Trennlinie
+      );
+
+      // Statistiken hinzufügen
+      dropdownMenu.append(
+        `<li><a href="#" style="color: white;"><strong>Gesamtverdiente Credits:</strong> <span style="color: green;" class="total-credits">${totalCredits.toLocaleString()}</span></a></li>`
+      );
+      dropdownMenu.append(
+        `<li><a href="#" style="color: white;"><strong>Verbandskasse:</strong> <span style="color: green;" class="current-credits">${currentCredits.toLocaleString()}</span></a></li>`
       );
       dropdownMenu.append(
         `<li><a href="#" style="color: white;"><strong>Mitglieder:</strong> <span style="color: green;" class="total-members">${totalMembers}</span></a></li>`
@@ -109,7 +122,7 @@
         `<li><a href="#" style="color: white; font-size: 12px;">Ersteller: Fabian (Capt.BobbyNash)</a></li>`
       );
       dropdownMenu.append(
-        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.00 (Close BETA Version)</a></li>`
+        `<li><a href="#" style="color: white; font-size: 12px;">Version: 1.19 (Dev Version)</a></li>`
       );
       dropdownMenu.append(
         `<li><a href="#" style="color: white; font-size: 12px;">Funktionen des Skripts:</a></li>`
@@ -162,6 +175,7 @@
     } else {
       // Menü existiert bereits, nur die Statistiken aktualisieren
       console.log("Aktualisieren des vorhandenen Menüs...");
+      $('#alliance-statistics-menu .alliance-name').text(allianceName).attr('href', `https://www.leitstellenspiel.de/alliances/${allianceId}`);
       $('#alliance-statistics-menu .total-credits').text(totalCredits.toLocaleString());
       $('#alliance-statistics-menu .current-credits').text(currentCredits.toLocaleString());
       $('#alliance-statistics-menu .total-members').text(totalMembers);
