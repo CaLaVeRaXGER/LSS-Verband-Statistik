@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel Verband Statistik - Close BETA
 // @namespace    http://tampermonkey.net/
-// @version      2.2 CLOSE BETA
+// @version      2.3 CLOSE BETA
 // @description  Professionelles Design für die Verband Statistiken im Leitstellenspiel, mit angepasster Schriftgröße und Logo als Dropdown-Button.
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
@@ -251,7 +251,7 @@
                 `<li><a href="#" style="color: white; font-size: 10px;">Supporter: m75e</a></li>`
             );
             scriptInfoContainer.append(
-                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.1 (CLOSE BETA)</a></li>`
+                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.3 (CLOSE BETA)</a></li>`
             );
             scriptInfoContainer.append(
                 `<li><a href="#" style="color: white; font-size: 10px;">BETA TEST Teilnehmer: Das Gesammte Wir in BaWü Verbands Team</a></li>`
