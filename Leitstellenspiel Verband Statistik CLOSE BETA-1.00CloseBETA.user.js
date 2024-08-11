@@ -251,7 +251,7 @@
                 `<li><a href="#" style="color: white; font-size: 10px;">Supporter: m75e</a></li>`
             );
             scriptInfoContainer.append(
-                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.0 (CLOSE BETA)</a></li>`
+                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.1 (CLOSE BETA)</a></li>`
             );
             scriptInfoContainer.append(
                 `<li><a href="#" style="color: white; font-size: 10px;">BETA TEST Teilnehmer: Das Gesammte Wir in BaWü Verbands Team</a></li>`
