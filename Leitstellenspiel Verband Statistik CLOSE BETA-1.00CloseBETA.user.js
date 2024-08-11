@@ -1,14 +1,17 @@
 // ==UserScript==
 // @name         Leitstellenspiel Verband Statistik - Close BETA
 // @namespace    http://tampermonkey.net/
-// @version      2.0 CLOSE BETA
+// @version      2.2 CLOSE BETA
 // @description  Professionelles Design für die Verband Statistiken im Leitstellenspiel, mit angepasster Schriftgröße und Logo als Dropdown-Button.
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
+// @updateURL    https://raw.githubusercontent.com/CaLaVeRaXGER/LSS-Verband-Statistik/main/Leitstellenspiel%20Verband%20Statistik%20CLOSE%20BETA-1.00CloseBETA.user.js
+// @downloadURL  https://raw.githubusercontent.com/CaLaVeRaXGER/LSS-Verband-Statistik/main/Leitstellenspiel%20Verband%20Statistik%20CLOSE%20BETA-1.00CloseBETA.user.js
 // ==/UserScript==
+
 
 (function () {
     "use strict";
