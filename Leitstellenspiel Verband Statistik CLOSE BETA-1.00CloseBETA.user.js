@@ -1,17 +1,14 @@
 // ==UserScript==
-// @name         Leitstellenspiel Verband Statistik - Close BETA
+// @name         Leitstellenspiel Verband Statistik - CLOSE BETA
 // @namespace    http://tampermonkey.net/
-// @version      2.3 CLOSE BETA
+// @version      2.0 CLOSE BETA
 // @description  Professionelles Design für die Verband Statistiken im Leitstellenspiel, mit angepasster Schriftgröße und Logo als Dropdown-Button.
 // @author       Fabian (Capt.BobbyNash)
 // @match        https://www.leitstellenspiel.de/
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
-// @updateURL    https://raw.githubusercontent.com/CaLaVeRaXGER/LSS-Verband-Statistik/main/Leitstellenspiel%20Verband%20Statistik%20CLOSE%20BETA-1.00CloseBETA.user.js
-// @downloadURL  https://raw.githubusercontent.com/CaLaVeRaXGER/LSS-Verband-Statistik/main/Leitstellenspiel%20Verband%20Statistik%20CLOSE%20BETA-1.00CloseBETA.user.js
 // ==/UserScript==
-
 
 (function () {
     "use strict";
@@ -251,10 +248,7 @@
                 `<li><a href="#" style="color: white; font-size: 10px;">Supporter: m75e</a></li>`
             );
             scriptInfoContainer.append(
-                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.3 (CLOSE BETA)</a></li>`
-            );
-            scriptInfoContainer.append(
-                `<li><a href="#" style="color: white; font-size: 10px;">BETA TEST Teilnehmer: Das Gesammte Wir in BaWü Verbands Team</a></li>`
+                `<li><a href="#" style="color: white; font-size: 10px;">Version: 2.0 (Close BETA)</a></li>`
             );
             scriptInfoContainer.append(
                 `<li><a href="#" style="color: white; font-size: 10px;">Funktionen des Skripts:</a></li>`
